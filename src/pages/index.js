@@ -1,13 +1,13 @@
-import Layout from "@/components/Layout";
+import Layout from "../components/Layout";
 import Head from "next/head";
 import Image from "next/image";
 import profilePic from "../../public/images/profile/dimos2.webp";
-import AnimatedText from "@/components/AnimatedText";
-import { LinkArrow } from "@/components/Icons";
+import AnimatedText from "../components/AnimatedText";
+import { LinkArrow } from "../components/Icons";
 import Link from "next/link";
-import HireMe from "@/components/HireMe";
+import HireMe from "../components/HireMe";
 import runner from "../../public/images/svgs/runner_final.svg";
-import TransitionEffect from "@/components/TransitionEffect";
+import TransitionEffect from "../components/TransitionEffect";
 
 export default function Home() {
   return (

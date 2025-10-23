@@ -1,16 +1,16 @@
-import AnimatedText from "@/components/AnimatedText";
-import Layout from "@/components/Layout";
+import AnimatedText from "../components/AnimatedText";
+import Layout from "../components/Layout";
 import Head from "next/head";
 import React, { useEffect, useRef } from "react";
 import profilePic from "../../public/images/profile/dimos1.jpg";
 import Image from "next/image";
 import { useInView, useMotionValue, useSpring } from "framer-motion";
-import Skills from "@/components/Skills";
-import Education from "@/components/Education";
-import TransitionEffect from "@/components/TransitionEffect";
-import Testimonials from "@/components/Testimonials";
-import BuScrollToTop from "@/components/BuScrollToTop";
-import Experience from "@/components/Experience";
+import Skills from "../components/Skills";
+import Education from "../components/Education";
+import TransitionEffect from "../components/TransitionEffect";
+import Testimonials from "../components/Testimonials";
+import BuScrollToTop from "../components/BuScrollToTop";
+import Experience from "../components/Experience";
 
 const AnimatedNumbers = ({ value }) => {
   const ref = useRef(null);

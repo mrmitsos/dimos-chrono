@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
-import Layout from "@/components/Layout";
-import AnimatedText from "@/components/AnimatedText";
+import Layout from "../components/Layout";
+import AnimatedText from "../components/AnimatedText";
 import Link from "next/link";
 import Image from "next/image";
 import project1 from "../../public/images/projects/move2024.webp";
@@ -11,8 +11,8 @@ import project4 from "../../public/images/projects/ocean2021.jpg";
 import project5 from "../../public/images/projects/ocean2019.jpg";
 import project6 from "../../public/images/projects/ocean2018.webp";
 import { motion } from "framer-motion";
-import TransitionEffect from "@/components/TransitionEffect";
-import BuScrollToTop from "@/components/BuScrollToTop";
+import TransitionEffect from "../components/TransitionEffect";
+import BuScrollToTop from "../components/BuScrollToTop";
 
 const FramerImage = motion(Image);
 

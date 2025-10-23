@@ -1,10 +1,10 @@
-import Footer from "@/components/Footer";
-import NavBar from "@/components/NavBar";
-import "@/styles/globals.css";
+import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
 import { AnimatePresence } from "framer-motion";
 import { Montserrat } from "next/font/google";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import "../styles/globals.css";
 
 //this is the active page
 
