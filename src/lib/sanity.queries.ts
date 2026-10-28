@@ -1,6 +1,15 @@
 import { client } from "./sanity.client";
 import { Article } from "../types/article";
 
+// Resolve image assets inside Portable Text so inline images get a url
+const contentProjection = `"content": content[]{
+    ...,
+    _type == "image" => {
+      ...,
+      "asset": asset->{ url }
+    }
+  }`;
+
 // GROQ query to get all articles
 const articlesQuery = `*[_type == "article"] | order(publishedAt desc) {
   "slug": slug.current,
@@ -8,6 +17,7 @@ const articlesQuery = `*[_type == "article"] | order(publishedAt desc) {
   summary,
   "image": mainImage.asset->url,
   "date": publishedAt,
+  "publishedAt": publishedAt,
   readTime,
   isFeatured,
   "author": {
@@ -15,7 +25,7 @@ const articlesQuery = `*[_type == "article"] | order(publishedAt desc) {
     "image": author.image.asset->url
   },
   tags,
-  content
+  ${contentProjection}
 }`;
 
 // Query for featured articles only
@@ -25,6 +35,7 @@ const featuredArticlesQuery = `*[_type == "article" && isFeatured == true] | ord
   summary,
   "image": mainImage.asset->url,
   "date": publishedAt,
+  "publishedAt": publishedAt,
   readTime,
   isFeatured,
   "author": {
@@ -32,7 +43,7 @@ const featuredArticlesQuery = `*[_type == "article" && isFeatured == true] | ord
     "image": author.image.asset->url
   },
   tags,
-  content
+  ${contentProjection}
 }`;
 
 // Query for a single article by slug
@@ -42,6 +53,7 @@ const articleBySlugQuery = `*[_type == "article" && slug.current == $slug][0] {
   summary,
   "image": mainImage.asset->url,
   "date": publishedAt,
+  "publishedAt": publishedAt,
   readTime,
   isFeatured,
   "author": {
@@ -49,7 +61,7 @@ const articleBySlugQuery = `*[_type == "article" && slug.current == $slug][0] {
     "image": author.image.asset->url
   },
   tags,
-  content
+  ${contentProjection}
 }`;
 
 export async function getAllArticles(): Promise<Article[]> {

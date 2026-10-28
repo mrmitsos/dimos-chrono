@@ -4,6 +4,7 @@ export interface Article {
   summary: string;
   content: any;
   date: string;
+  publishedAt?: string;
   readTime: string;
   image: string;
   isFeatured: boolean;
